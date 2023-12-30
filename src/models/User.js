@@ -1,0 +1,34 @@
+// src/models/User.js
+
+import { Sequelize, DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
+
+const User = sequelize.define("User", {
+  // Define attributes
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+
+  resetPasswordToken: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  resetPasswordExpires: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+  // Add other fields as needed
+});
+
+export default User;
